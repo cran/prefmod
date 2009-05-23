@@ -42,35 +42,25 @@ llbt.worth <- function(obj, obj.names=NULL, outmat="worth"){
            # others according to their labels
            lambda.rest<-lambda[-(1:nobj)]
            nn2<-nn[-(1:nobj)]
-           lambda.rest<-lambda.rest[order(nn2)]
-           lambda.mat.rest<-matrix(lambda.rest,nrow=nobj)
+           nn2<-nl[-(1:nobj)]
+           lambda.mat.rest<-matrix(lambda.rest,b=T,nrow=nobj)
            lambda.mat[,2:ncol(lambda.mat)]<-lambda.mat.rest
-
        colnames(lambda.mat) <- unique(nam.new)
        rownames(lambda.mat) <- nam.lambda[1:nobj]
 
        ## calculate sums accordig to covariates
        lambda.vec <- as.vector(lambda.mat)
        covmat <- unique(obj$envList$covdesmat)
+
        lambda.groups.mat <- matrix((covmat %x% diag(nobj)) %*% lambda.vec, nrow=nobj)
 
 
        ## labels for cov groups
-       covlevels <- obj$envList$covlevels
-       ncovs<-length(covlevels)
-       grid.groups<-vector("list",ncovs)
-       for (i in 1:ncovs)
-         grid.groups[[i]]<-1:covlevels[i]
-       gr<- expand.grid(grid.groups)
-       gr2<-gr
-       if(all(covlevels==1)){
-            gr.labels<-""
-       } else {
-            for (i in 1:ncovs)
-                gr2[i]<-paste(names(covlevels)[i],gr[[i]],sep="")
-            gr.labels<-apply(as.matrix(gr2),1,function(x) paste(x,collapse=":"))
-       }
+       x<-obj$envList$model.covs
+       xx<-mapply(function(x,y)paste(x,y,sep=""), colnames(x),data.frame(x))
+       gr.labels <-apply(xx,1,paste,collapse=":")
        colnames(lambda.groups.mat) <- gr.labels
+
        if (is.null(obj.names))
           rownames(lambda.groups.mat) <- nam.lambda[1:nobj]
        else
