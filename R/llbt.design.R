@@ -43,6 +43,10 @@ if(!exists("cov.sel")) cov.sel=""
 cov.sel<-eval(cov.sel)
 blnGLIMcmds <- ifelse(blnGLIMcmds=="T",TRUE,FALSE)
 blnCasewise <- ifelse((blnCasewise==TRUE) || (blnCasewise=="T") ,TRUE,FALSE)
+
+if (blnGLIMcmds){
+    stop("\nGLIMcmds deprecated. Please use preftest < 0.8-24!\n\n", call.=FALSE)
+  }
 ###
 
   dfr<-NULL
@@ -366,67 +370,73 @@ if(!is.null(objcovs)){
 ### new: attributes in design data frame
 attr(dm, which="objnames")<-objnames
 names(dm)<-c("y",varnames)
-class(dm)<-c("data.frame","llbtdes")
+if(!is.null(cat.scovs)) attr(dm, which="cat.scovs")<-cat.scovs  # rh 2011-03-27
+if(!is.null(num.scovs)) attr(dm, which="num.scovs")<-num.scovs
 
-################################################################
-#
-# GLIM commands output
-#
-
-if (glimoutput) {
-
-    names(dm[,1])<-"!y"
-    write.table(dm,outFile,quote=F,row.names=F)  #
-
-    txt<-paste("$SL ",length(y),sep="")
-    write(txt,file=glimoutFile)
-
-    txt<-paste("$DATA y ",paste(varnames,collapse=" "),sep="")
-    write(txt,file=glimoutFile,append=T)
-
-    txt<-paste("$DINP '",outFile,"' 132",sep="")
-    write(txt,file=glimoutFile,append=T)
-
-    txt<-paste("$FAC mu ",ncomp," ",sep="")
-    if (ncov>0) {
-         facs<-na.omit(data.frame(covnames,covlevels))
-         txt<-paste(txt, paste(facs[,1],facs[,2],sep = " ",collapse=" "),sep="")
-    }
-    write(txt,file=glimoutFile,append=T)
-
-    if (ncov==0) {
-         txt<-"$ELIM mu"
-    } else if(casewise) {
-         txt<-"$ELIM mu*case"
-    } else {
-         txt<-paste("$ELIM mu*",paste(covnames,collapse="*"),sep="")
-    }
-    write(txt,file=glimoutFile,append=T)
-
-    write("$ERR P $YV y",file=glimoutFile,append=T)
-
-    txt<-paste("$FIT",paste(objnames,collapse="+"),sep=" ")
-    write(txt,file=glimoutFile,append=T)
-
-    write("$DISP E",file=glimoutFile,append=T)
-
-    write("$RETURN",file=glimoutFile,append=T)
-}
-
-# define factors according to input data frame 2010-12-28 obsolete for the time being
-# facnam<-names(facs[facs])
-
-# define factors according cat.scov 2010-12-30
+# define factors according cat.scovs 2010-12-30
 if (length(cat.scovs)>0){
-   if(toupper(cat.scovs)=="ALL") facnam<-cov.sel else facnam<-cat.scovs
+   if("ALL" %in% toupper(cat.scovs)) facnam<-cov.sel else facnam<-cat.scovs
    dmnam<-intersect(facnam,colnames(dm))
    dm[dmnam]<-lapply(dm[dmnam],factor)
 }
 
-if (glimoutput) {
-  invisible(dm)
-} else {
-  return(dm)
-}
+class(dm)<-c("data.frame","llbtdes")
 
+return(dm)
+
+
+# ################################################################
+# #
+# # GLIM commands output deprecated from 0.8-24 onwards
+# #
+#
+# if (glimoutput) {
+#
+#     names(dm[,1])<-"!y"
+#     write.table(dm,outFile,quote=F,row.names=F)  #
+#
+#     txt<-paste("$SL ",length(y),sep="")
+#     write(txt,file=glimoutFile)
+#
+#     txt<-paste("$DATA y ",paste(varnames,collapse=" "),sep="")
+#     write(txt,file=glimoutFile,append=T)
+#
+#     txt<-paste("$DINP '",outFile,"' 132",sep="")
+#     write(txt,file=glimoutFile,append=T)
+#
+#     txt<-paste("$FAC mu ",ncomp," ",sep="")
+#     if (ncov>0) {
+#          facs<-na.omit(data.frame(covnames,covlevels))
+#          txt<-paste(txt, paste(facs[,1],facs[,2],sep = " ",collapse=" "),sep="")
+#     }
+#     write(txt,file=glimoutFile,append=T)
+#
+#     if (ncov==0) {
+#          txt<-"$ELIM mu"
+#     } else if(casewise) {
+#          txt<-"$ELIM mu*case"
+#     } else {
+#          txt<-paste("$ELIM mu*",paste(covnames,collapse="*"),sep="")
+#     }
+#     write(txt,file=glimoutFile,append=T)
+#
+#     write("$ERR P $YV y",file=glimoutFile,append=T)
+#
+#     txt<-paste("$FIT",paste(objnames,collapse="+"),sep=" ")
+#     write(txt,file=glimoutFile,append=T)
+#
+#     write("$DISP E",file=glimoutFile,append=T)
+#
+#     write("$RETURN",file=glimoutFile,append=T)
+# }
+#
+# define factors according to input data frame 2010-12-28 obsolete for the time being
+# facnam<-names(facs[facs])
+
+
+# if (glimoutput) {
+#   invisible(dm)
+# } else {
+#   return(dm)
+# }
 }
