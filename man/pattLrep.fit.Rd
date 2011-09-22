@@ -127,7 +127,7 @@ pattLrep.fit(obj, nitems, tpoints = 1, formel = ~1, elim = ~1,
 dat<-as.data.frame(matrix(sample(1:5,300,replace=TRUE),nc=6))
 res<-pattLrep.fit(dat, nitems=3, tpoints=2, iaT=TRUE)
 res
-patt.worth(res,obj.names=LETTERS[1:2])
+patt.worth(res,obj.names=LETTERS[1:3])
 }
 \keyword{models}
 \keyword{multivariate}

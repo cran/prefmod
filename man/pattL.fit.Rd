@@ -6,7 +6,7 @@
        allowing for missing values using a CL approach.}
 \usage{
 pattL.fit(obj, nitems, formel = ~1, elim = ~1, resptype = "rating",
-    undec = FALSE, ia = FALSE, NItest = FALSE, pr.it = FALSE)
+    obj.names=NULL, undec = FALSE, ia = FALSE, NItest = FALSE, pr.it = FALSE)
 }
 \arguments{
   \item{obj}{either a dataframe or the path/name of the datafile to be read.
@@ -21,6 +21,8 @@ pattL.fit(obj, nitems, formel = ~1, elim = ~1, resptype = "rating",
         must be separated by the \code{*} operator.}
   \item{resptype}{is \code{"rating"} by default and is reserved for future usage.
         Any other specification will not change the behaviour of \code{pattL.fit}
+        }
+  \item{obj.names}{character vector with names for objects.
         }
   \item{undec}{for paired comparisons with a undecided/neutral category,
         a common parameter will be estimated if \code{undec = TRUE}.}
@@ -116,7 +118,7 @@ pattL.fit(obj, nitems, formel = ~1, elim = ~1, resptype = "rating",
 \examples{
 ## fit only four items
 data(music)
-music4<-music[,c("jazz","blues","folk","rap")]
+music4<-music[,c("jazz","blue","folk","rap")]
 pattL.fit(music4, nitems=4)
 
 ## fit additional undecided effect
