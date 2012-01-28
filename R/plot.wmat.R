@@ -1,12 +1,12 @@
-plotworth<-function(worthmat, main="Preferences", ylab="Estimate",
-              psymb=NULL, pcol=NULL, ylim = range(worthmat),...)
+plot.wmat<-function(x, main="Preferences", ylab="Estimate",
+              psymb=NULL, pcol=NULL, ylim = range(worthmat),log="", ...)
 {
 #
 # plot ranking
 #
 # uses colorspace() as from 0.8-15
 
-
+worthmat<-x
 coeff<-unclass(worthmat)
 objnames<-rownames(coeff)
 grnames<-colnames(coeff)
@@ -54,7 +54,7 @@ pomi <- c(0.2,0.2,0.5,0.2)
 if (!(all(pomi==par("omi"))))        # if already set don't reset omi
     par(omi = pomi, mar=c(3,4,0.1,0) ) # makes plot fill the whole region
 
-plot(c(0.5,ngroups+0.5),c(min(coeff),max(coeff)),type="n",axes=FALSE, xlab="",ylab=ylab,ylim=ylim,...)
+plot(c(0.5,ngroups+0.5),c(min(coeff),max(coeff)),type="n",axes=FALSE, xlab="",ylab=ylab,ylim=ylim,log=log,...)
 title(main,outer=TRUE)
 box()
 axis(2)

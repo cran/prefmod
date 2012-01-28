@@ -5,7 +5,7 @@
        allowing for missing values using a CL approach.}
 \usage{
 pattPC.fit(obj, nitems, formel = ~1, elim = ~1, resptype = "paircomp",
-    obj.names = NULL, undec = FALSE, ia = FALSE, NItest = FALSE,
+    obj.names = NULL, undec = TRUE, ia = FALSE, NItest = FALSE,
     NI = FALSE, MIScommon = FALSE, MISmodel="obj", MISalpha = NULL,
     MISbeta = NULL, pr.it = FALSE)
 }
@@ -135,7 +135,7 @@ pattPC.fit(obj, nitems, formel = ~1, elim = ~1, resptype = "paircomp",
      with the number of objects. For paired comparisons with two response
      categories the number of rows of the table is \eqn{ 2 ^ (number of comparisons)}, e.g.,
      with six objects this is 32768, for three response categories this is 14348907.
-     A reasobale maximum number of objects to be analysed with pattern models is
+     A reasonable maximum number of objects to be analysed with pattern models is
      6 in the case of two response categories and 5 when an additional undecided/neutral
      category has been observed).
      }

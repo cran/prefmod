@@ -38,13 +38,13 @@ llbt.worth(fitobj, outmat = "worth")
   containing a summary of original objects (items) and their reparameterisation
   with object-specific covariates. This is a list or a matrix.
 
-  The function \code{\link{plotworth}} gives a plot of the estimates.
+  The function \code{\link{plot}} gives a plot of the estimates.
 }
 \note{If a position effect has been fitted (for details see Dittrich, et.al., 1998),
 the corresponding variable must have been named \code{pos}.
 }
 \author{Reinhold Hatzinger}
-\seealso{\code{\link{llbtPC.fit}}, \code{\link{llbt.design}}, \code{\link{plotworth}}}
+\seealso{\code{\link{llbtPC.fit}}, \code{\link{llbt.design}}, \code{\link{plot}}}
 \examples{
     ## fit only first three objects with SEX effect
     data(cemspc)
@@ -61,7 +61,7 @@ the corresponding variable must have been named \code{pos}.
 
     ## calculate and plot worth parameters
     w2 <- llbt.worth(m2)
-    plotworth(w2)
+    plot(w2)
 
 
     ## model with object specific covariates

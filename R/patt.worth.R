@@ -369,7 +369,7 @@ patt.worth<-function(fitobj, obj.names=NULL, outmat="worth"){
      group.est <- sum.mat %*% as.vector(lmat)
 
      ## labels for cov groups
-     if(!Tmod){                                           # if not a time model
+##     if(!Tmod){                                           # if not a time model - rubbish rh 2011-10-25
           x<-obj$envList$model.covs
           if (is.null(x)) {
                gr.labels <- "estimate"
@@ -377,8 +377,8 @@ patt.worth<-function(fitobj, obj.names=NULL, outmat="worth"){
                xx<-mapply(function(x,y)paste(x,y,sep=""), colnames(x),data.frame(x))
                gr.labels <-apply(xx,1,paste,collapse=":")
           }
-     } else
-          gr.labels <- ""
+##     } else
+##          gr.labels <- ""
 
      mltp<-2
      worthmatrix<-NULL
@@ -424,8 +424,8 @@ patt.worth<-function(fitobj, obj.names=NULL, outmat="worth"){
      #worthmatrix
 
      switch(outmat,
-        "lambda" = return(est),
-        "worth" = return(worthmatrix),
+         "lambda" = {class(est)<-c("wmat",class(est));return(est)},
+         "worth" = {class(worthmatrix)<-c("wmat",class(worthmatrix));return(worthmatrix)},
         # "est" = return(lambda.mat),
         stop("     outmat must be either 'worth' or 'lambda'\n")
      )

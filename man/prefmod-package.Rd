@@ -17,8 +17,8 @@ Fits pattern mixture models using a nonparametric ML approach.
 \tabular{ll}{
 Package: \tab prefmod\cr
 Type: \tab Package\cr
-Version: \tab 0.8-27\cr
-Date: \tab 2011-09-22\cr
+Version: \tab 0.8-29\cr
+Date: \tab 2011-01-28\cr
 Depends: \tab stats\cr
 License: \tab GPL\cr
 }
@@ -35,7 +35,7 @@ Maintainer: Reinhold Hatzinger <reinhold.hatzinger@wu.ac.at>
 
 data(xmpl)   # example data in package
 dsgnmat <- patt.design(xmpl, nitems = 3, resptype="rating",
-    blnIntcovs = TRUE, cov.sel="ALL")
+    ia = TRUE, cov.sel="ALL")
 print(head(dsgnmat))
 
 ## fit of Critchlov & Fligner (1991) Salad Dressings Data

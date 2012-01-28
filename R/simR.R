@@ -2,6 +2,8 @@
 #
 simR<-function(nobj, nobs, worth=NULL, seed=NULL, pr=FALSE)
 {
+   if(nobj>10)
+     stop("nobj too large!")
    if(!is.null(seed)) set.seed(seed)
 
    if(is.null(worth)){

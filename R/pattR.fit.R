@@ -31,9 +31,9 @@ pattR.fit<-function(obj, nitems,formel=~1,elim=~1,resptype="ranking",
         stop("first argument must be either datafilename or dataframe")
    }
 
-   formel.names<-attr(terms(as.formula(formel)),"term.labels")
-   elim.names<-attr(terms(as.formula(elim)),"term.labels")
-   covnames<-unique(c(formel.names,elim.names))
+#####   formel.names<-attr(terms(as.formula(formel)),"term.labels")
+#####   elim.names<-attr(terms(as.formula(elim)),"term.labels")
+#####   covnames<-unique(c(formel.names,elim.names))
 
    varnames<-colnames(dat)
    if (ncol(dat)>nobj) {
