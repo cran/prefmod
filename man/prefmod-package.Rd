@@ -17,8 +17,8 @@ Fits pattern mixture models using a nonparametric ML approach.
 \tabular{ll}{
 Package: \tab prefmod\cr
 Type: \tab Package\cr
-Version: \tab 0.8-29\cr
-Date: \tab 2011-01-28\cr
+Version: \tab 0.8-31\cr
+Date: \tab 2012-05-14\cr
 Depends: \tab stats\cr
 License: \tab GPL\cr
 }
@@ -27,6 +27,11 @@ License: \tab GPL\cr
 Reinhold Hatzinger
 
 Maintainer: Reinhold Hatzinger <reinhold.hatzinger@wu.ac.at>
+}
+\references{Reinhold Hatzinger, Regina Dittrich (2012). prefmod:
+An R Package for Modeling Preferences Based on Paired Comparisons,
+Rankings, or Ratings. Journal of Statistical Software, 48(10), 1-31.
+\url{http://www.jstatsoft.org/v48/i10/}
 }
 \keyword{ package }
 \examples{

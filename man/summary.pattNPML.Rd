@@ -10,7 +10,6 @@
 \usage{
 \method{summary}{pattNPML}(object, digits = max(3, getOption("digits") - 3), ...)
 \method{print}{pattNPML}(x, digits=max(3,getOption('digits')-3), ...)
-\method{BIC}{pattNPML}(object, ...)
 }
 \arguments{
   \item{object}{a fitted object of class \code{pattNPML}.   }

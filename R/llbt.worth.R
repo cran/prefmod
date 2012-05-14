@@ -261,12 +261,24 @@ if (llbtdesignmodel){
      attr(worthmat, which="objtable")<- attr(estmat, which="objtable")
      if(ncol(worthmat)==1)   colnames(worthmat) <- "worth"
 
-     switch(outmat,
-        "lambda" = return(estmat),
-        "worth" = return(worthmat),
-        stop("     outmat must be either 'worth' or 'lambda'\n")
-     )
+#    switch(outmat,
+#       "lambda" = return(estmat),
+#       "worth" = return(worthmat),
+#       stop("     outmat must be either 'worth' or 'lambda'\n")
+#     )
 
+
+     switch(outmat, lambda = {
+         class(estmat) <- c("wmat", class(estmat))
+         return(estmat)
+     }, worth = {
+         class(worthmat) <- c("wmat", class(worthmat))
+         return(worthmat)
+     }, est = {
+         class(estmat) <- c("wmat", class(estmat))
+         return(estmat)
+     }, stop("     outmat must be either 'worth' or 'lambda'\n")
+     )
   ## end llbtdesignmodel
 } else {
 
@@ -351,7 +363,6 @@ if (llbtdesignmodel){
       worth.groups.mat <- apply(lambda.groups.mat, 2, function(x) exp(2*x)/sum(exp(2*x)))
       }
 }
-
 
 ## return
 switch(outmat,

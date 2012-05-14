@@ -1,8 +1,8 @@
 Package: prefmod
 Type: Package
 Title: Utilities to fit paired comparison models for preferences
-Version: 0.8-29
-Date: 2012-01-28
+Version: 0.8-31
+Date: 2012-05-14
 Author: Reinhold Hatzinger
 Maintainer: Reinhold Hatzinger <reinhold.hatzinger@wu.ac.at>
 Depends: stats, gnm (>= 1.0-0), colorspace
@@ -18,6 +18,6 @@ Description: Generates design matrix for analysing real paired
 License: GPL
 LazyData: yes
 LazyLoad: yes
-Packaged: 2012-02-15 12:24:02 UTC; hatz
+Packaged: 2012-05-14 10:07:36 UTC; hatz
 Repository: CRAN
-Date/Publication: 2012-02-16 08:31:37
+Date/Publication: 2012-05-14 16:22:36

@@ -12,6 +12,7 @@ pattnpml.fit(formula,
         startp = NULL,
         EMmaxit = 500,
         EMdev.change = 0.001,
+        seed = NULL,
         pr.it = FALSE
         )
 }
@@ -25,6 +26,7 @@ pattnpml.fit(formula,
   \item{startp}{Optional numerical vector of length \code{k} specifying the starting probabilities for the mass points to initiailise the EM algorithm. The default is to take gausssian quandrature probabilities  }
   \item{EMmaxit}{The maximum number of EM iterations.   }
   \item{EMdev.change}{Stops EM algorithm when deviance change falls below this value.  }
+  \item{seed}{Seed for random weights. If \code{NULL}, the seed is set using the system time.  }
   \item{pr.it}{A dot is printed at each iteration cycle of the EM algorithm if set to \code{TRUE}.}
 }
 \details{
@@ -67,6 +69,8 @@ pattnpml.fit(formula,
   \code{random} term, and also in the \code{formula} part. Thus the setting \code{random= ~
   x:(o1+o2+o3} gives a model with a set of random slopes (one set for each
   mass point) and a set of random intercepts, one set for each mass point.
+
+  The \code{AIC} and \code{BIC} functions from the \pkg{stats}-package can be used.
 
 }
 \value{
@@ -167,6 +171,7 @@ model2cl <- pattnpml.fit(formula = y ~ -1 + SEX:AGE4 + (SEX + AGE4):
                random = ~ TV + RAD + NEWSP + SCIMAG + WWW + EDINST,
                k = 2, design = euro55.2.des, pr.it = TRUE)
 summary(model2cl)
+BIC(model2c)
 }
 }
 \keyword{models}
