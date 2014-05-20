@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{pattR.fit}
 \alias{pattR.fit}
 \title{Function to fit a pattern model for (partial) rankings}
@@ -15,7 +16,7 @@ pattR.fit(obj, nitems, formel = ~1, elim = ~1, resptype = "ranking",
   \item{formel}{the formula for subject covariates to fit different
         preference scales for the objects (see below).}
   \item{elim}{the formula for the subject covariates that specify the table
-        to be analysed. If ommitted and \code{formel} is not \code{ ~1} then
+        to be analysed. If ommitted and \code{formel} is not \code{~1} then
         \code{elim} will be set to the highest interaction between all terms
         contained in \code{formel}. If \code{elim} is specified, the terms
         must be separated by the \code{*} operator.}
@@ -121,15 +122,12 @@ pattR.fit(obj, nitems, formel = ~1, elim = ~1, resptype = "ranking",
 \seealso{\code{\link{patt.design}}, \code{\link{pattL.fit}}, \code{\link{pattPC.fit}}
      }
 \examples{
-## fit of Critchlov & Fligner (1991) Salad Dressings Data
-
-data(salad)
-pattR.fit(salad, nitems=4)
+# fit of Critchlov & Fligner (1991) Salad Dressings Data
+pattR.fit(salad, nitems = 4)
 
 # alternatively use glm() with patt.design()
-
-sal<-patt.design(salad,nitems=4,resptype="ranking")
-glm(y~A+B+C+D,family=poisson,data=sal)
+sal <- patt.design(salad, nitems = 4, resptype = "ranking")
+glm(y ~ A+B+C+D, data = sal, family = poisson)
 }
 %
 %   # Example for object covariates
@@ -138,7 +136,7 @@ glm(y~A+B+C+D,family=poisson,data=sal)
 %   # The four pairs of concentrations are
 %   # A = (.5, 0), B = (.5, 10.0), C = (1.0, 0), and D = (0, 10.0),
 %
-%   conc<-matrix(c(.5,0, .5,10,  1,0, 0,10), nc=2, byrow=TRUE)
+%   conc<-matrix(c(.5,0, .5,10,  1,0, 0,10), ncol=2, byrow=TRUE)
 %   X<-as.matrix(sal[,2:5])%*%conc
 %   glm(y~X,family=poisson,data=sal)
 %

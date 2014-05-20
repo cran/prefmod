@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{llbtPC.fit}
 \alias{llbtPC.fit}
 \title{Function to fit a loglinear Bradley-Terry model for paired comparisons}
@@ -14,7 +15,7 @@ obj.names = NULL, undec = TRUE)
   \item{formel}{the formula for subject covariates to fit different
         preference scales for the objects (see below).}
   \item{elim}{the formula for the subject covariates that specify the table
-        to be analysed. If omitted and \code{formel} is not \code{ ~1} then
+        to be analysed. If omitted and \code{formel} is not \code{~1} then
         \code{elim} will be set to the highest interaction between all terms
         contained in \code{formel}. If \code{elim} is specified, the terms
         must be separated by the \code{*} operator.}
@@ -89,14 +90,12 @@ directly (see Examples for \code{\link{llbt.design}}).
 }
 \seealso{\code{\link{llbt.design}}, \code{\link{pattL.fit}}}
 \examples{
-## cems universities example
-data(cemspc)
-res0<-llbtPC.fit(cemspc, nitems=6, formel=~1, elim=~ENG, undec=TRUE)
-res1<-llbtPC.fit(cemspc, nitems=6, formel=~ENG, elim=~ENG, undec=TRUE)
+# cems universities example
+res0 <- llbtPC.fit(cemspc, nitems = 6, formel = ~1,   elim = ~ENG, undec = TRUE)
+res1 <- llbtPC.fit(cemspc, nitems = 6, formel = ~ENG, elim = ~ENG, undec = TRUE)
 
 anova(res1, res0)
 llbt.worth(res1)
-
 }
 \keyword{models}
 \keyword{multivariate}

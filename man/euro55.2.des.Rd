@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{euro55.2.des}
 \Rdversion{1.1}
 \alias{euro55.2.des}
@@ -17,22 +18,22 @@ rank them in order of importance. The items were:
 Television, Radio, Press, Scientific Magazines, Internet, School and
 University.
 }
-\usage{data(euro55.2.des)}
+\usage{euro55.2.des}
 \format{
 The data is a design data frame generated from the original data using
 \code{\link{patt.design}}. Each row represents a (derived) paired comparison
 response pattern crossclassified by the categorical subject covariates
 \code{SEX} and \code{AGE4}. The columns are:
  \describe{
-  \item{\code{y}     }{counts}
-  \item{\code{TV}    }{design vector for Television}
-  \item{\code{RAD}   }{design vector for Radio}
-  \item{\code{NEWSP} }{design vector for Newspapers and magazine}
+  \item{\code{y}}{counts}
+  \item{\code{TV}}{design vector for Television}
+  \item{\code{RAD}}{design vector for Radio}
+  \item{\code{NEWSP}}{design vector for Newspapers and magazine}
   \item{\code{SCIMAG}}{design vector for Scientific magazines}
-  \item{\code{WWW}   }{design vector for The internet}
+  \item{\code{WWW}}{design vector for The internet}
   \item{\code{EDINST}}{design vector for School/University}
-  \item{\code{SEX}   }{Gender - Factor with 2 levels: (1) male, (2) female}
-  \item{\code{AGE4}  }{Age - Factor with 4 levels: (1) 15-24, (2) 25-39, (3) 40-54, (4) 55+}
+  \item{\code{SEX}}{Gender -- Factor with 2 levels: (1) male, (2) female}
+  \item{\code{AGE4}}{Age -- Factor with 4 levels: (1) 15-24, (2) 25-39, (3) 40-54, (4) 55+}
  }
 }
 \details{The original data contained  16 029 cases, after removal of cases with missing values
@@ -48,8 +49,5 @@ Brussels.
 %MI: Inter-university Consortium for Political and Social Research [distributors], 2006-08-03.
 %doi:10.3886/ICPSR03341
 }
-\examples{
-data(euro55.2.des)
-str(euro55.2.des)
-}
+\examples{str(euro55.2.des)}
 \keyword{datasets}

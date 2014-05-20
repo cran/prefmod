@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{pattLrep.fit}
 \alias{pattLrep.fit}
 \title{Function to fit a pattern model for repeated ratings (Likert items)}
@@ -16,7 +17,7 @@ pattLrep.fit(obj, nitems, tpoints = 1, formel = ~1, elim = ~1,
   \item{formel}{the formula for subject covariates to fit different
         preference scales for the objects (see below).}
   \item{elim}{the formula for the subject covariates that specify the table
-        to be analysed. If ommitted and \code{formel} is not \code{ ~1} then
+        to be analysed. If ommitted and \code{formel} is not \code{~1} then
         \code{elim} will be set to the highest interaction between all terms
         contained in \code{formel}. If \code{elim} is specified, the terms
         must be separated by the \code{*} operator.}
@@ -125,11 +126,11 @@ pattLrep.fit(obj, nitems, tpoints = 1, formel = ~1, elim = ~1,
 \seealso{\code{\link{pattL.fit}},\code{\link{patt.design}}, \code{\link{pattPC.fit}}, \code{\link{pattR.fit}}, \code{\link{pattRrep.fit}}
      }
 \examples{
-## simulated data: 3 items, 2 timepoints
-dat<-as.data.frame(matrix(sample(1:5,300,replace=TRUE),nc=6))
-res<-pattLrep.fit(dat, nitems=3, tpoints=2, iaT=TRUE)
+# simulated data: 3 items, 2 timepoints
+dat <- as.data.frame(matrix(sample(1:5, 300, replace = TRUE), ncol = 6))
+res <- pattLrep.fit(dat, nitems = 3, tpoints = 2, iaT = TRUE)
 res
-patt.worth(res,obj.names=LETTERS[1:3])
+patt.worth(res, obj.names = LETTERS[1:3])
 }
 \keyword{models}
 \keyword{multivariate}

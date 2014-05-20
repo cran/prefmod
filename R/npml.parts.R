@@ -214,7 +214,7 @@ cat('\n')
   cat('\n')
   invisible(x)
 }
-# obsolet
+# obsolete
 #"BIC.pattNPML"<-
 #function(object, ...){
 #object$disparity + (length(c(na.omit(object$coefficients),object$masses))-1) * log(sum(object$data$y))
