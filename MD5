@@ -1,4 +1,4 @@
-372e171da55dccf8af522dab535b04ca *DESCRIPTION
+c781504e38ab35e0d5d136b845aa3ff6 *DESCRIPTION
 5cf216be8dfad9b14bc3d9e65ca5dc78 *NAMESPACE
 32ab4193db9fdd77c67d1f7dab42ffe6 *NEWS
 00007da829d2b640ffd9b9a5472287e6 *R/Lpatternmat.R
@@ -79,7 +79,7 @@ fef24708029bc55c3e25eedc28daf1c1 *R/splitData3.R
 0eaedd14a0b7a55ceef0ec65375c386e *R/splitDataR.R
 8095be4e3808acd27d7fb5a1c271db1f *R/tern2int.R
 d4f827c326aa546126b70110b34b10be *R/writeGLIMcmds.R
-010e0df5feb6d250baefe9b53cbdcbf6 *build/partial.rdb
+2a24225fe7b19f1498275d692c0ede5b *build/partial.rdb
 1e3062c2cf4a2a14b1e5052639f168b5 *data/baseball.RData
 c2cf93c5adcf219bcdb42a8f73410346 *data/carconf.RData
 e8c0088307f971af30a6472bfc247a72 *data/cemspc.RData
@@ -92,7 +92,7 @@ e3d51b824a22dbd23a2f910d7861f337 *data/music.RData
 02b3f0c141acab0548c9ea2cd063bfb6 *data/tennis.RData
 2bfc10884c6c2f55430489ab62811d2b *data/trdel.RData
 db0bb4e849418325860a34a1ae3bf841 *data/xmpl.RData
-27a539bcd2e2379deaf6c00cdd2e3c03 *inst/CITATION
+2740d24d0e20f1c16582391e12df5594 *inst/CITATION
 d0e61b452fd262deae702a9177575227 *inst/NEWS.Rd
 d13c138c5950276187bee1fa6ea37ce5 *inst/NEWS.pdf
 7f6316a01d8c8e1d3531623cd9c704d0 *man/baseball.Rd
@@ -128,4 +128,4 @@ f47085aa749e1e526882fc6ea8755cf7 *man/simPC.Rd
 b45d41308f15418fb567d7a0a3cda15c *man/trdel.Rd
 9f089a50718e0430859d64e8266beec0 *man/xmpl.Rd
 6be13a48618b7f68ca7c2772cc4ec579 *src/init.c
-0bf0a7e61f835c9316b5b4e74d58e79e *src/prefmod.f95
+dd98fcf656548ef12fbbef399c7f977e *src/prefmod.f95

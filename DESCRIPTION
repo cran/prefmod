@@ -1,8 +1,8 @@
 Package: prefmod
 Type: Package
 Title: Utilities to Fit Paired Comparison Models for Preferences
-Version: 0.8-35
-Date: 2022-06-11
+Version: 0.8-36
+Date: 2023-09-28
 Authors@R: c(person(given = "Reinhold", family = "Hatzinger", role = "aut"),
               person(given = c("Marco", "Johannes"), family = "Maier",
                      email = "marco_maier@posteo.de", role = "cre"))
@@ -15,9 +15,9 @@ LazyLoad: yes
 ByteCompile: yes
 Encoding: UTF-8
 NeedsCompilation: yes
-Packaged: 2022-06-13 16:40:56 UTC; mm
+Packaged: 2023-09-28 15:00:53 UTC; mm
 Author: Reinhold Hatzinger [aut],
   Marco Johannes Maier [cre]
 Maintainer: Marco Johannes Maier <marco_maier@posteo.de>
 Repository: CRAN
-Date/Publication: 2022-06-14 08:07:05 UTC
+Date/Publication: 2023-09-30 16:50:02 UTC
